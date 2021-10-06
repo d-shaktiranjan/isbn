@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { IsbnAbout } from './IsbnAbout.js';
 
 export const Form = () => {
     let handelClick = () => {
@@ -20,7 +21,7 @@ export const Form = () => {
             </div>
             <button type="submit" className="btn btn-primary" onClick={handelClick}>Check</button>
             <hr />
-            <h3>ISBN is:- {isbnNumber}</h3>
+            <IsbnAbout />
         </div>
     )
 }
