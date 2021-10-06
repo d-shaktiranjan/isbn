@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const IsbnAbout = () => {
+export const IsbnAbout = (props) => {
     return (
         <div className="container">
             <h3 className="text-center">ISBN Details</h3>
@@ -14,15 +14,10 @@ export const IsbnAbout = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="table-success">
-                        <td>54545454</td>
-                        <td>React</td>
+                    <tr class="table-light">
+                        <td>{props.isbnNumber}</td>
+                        <td>{props.bookName}</td>
                         <td>Valid</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <td>0000</td>
-                        <td>React Fake</td>
-                        <td>Invalid</td>
                     </tr>
                 </tbody>
             </table>

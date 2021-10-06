@@ -3,12 +3,13 @@ import { IsbnAbout } from './IsbnAbout.js';
 
 export const Form = () => {
     let handelClick = () => {
-        console.log("Check button Clicked");
+        changeClick(true);
     }
     let valueChange = (e) => {
         setNumber(e.target.value)
     }
     const [isbnNumber, setNumber] = useState(null);
+    const [isClicked, changeClick] = useState(false);
     return (
         <div className="container mt-3">
             <div className="mb-3">
@@ -21,7 +22,7 @@ export const Form = () => {
             </div>
             <button type="submit" className="btn btn-primary" onClick={handelClick}>Check</button>
             <hr />
-            <IsbnAbout />
+            {isClicked === true && <IsbnAbout isbnNumber={isbnNumber} bookName="Not Given" />}
         </div>
     )
 }
