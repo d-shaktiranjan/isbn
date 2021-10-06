@@ -1,15 +1,29 @@
 import React, { useState } from 'react'
 import { IsbnAbout } from './IsbnAbout.js';
+import { Alert } from './Alert.js';
 
 export const Form = () => {
     let handelClick = () => {
-        changeClick(true);
+        if (isbnNumber === null) {
+            changeAlert(true);
+            return;
+        }
+        if (isbnNumber.length === 10) {
+            changeClick(true);
+        } else {
+            changeAlert(true);
+        }
     }
+
     let valueChange = (e) => {
+        changeAlert(false);
         setNumber(e.target.value)
+        changeClick(false);
     }
+
     const [isbnNumber, setNumber] = useState(null);
     const [isClicked, changeClick] = useState(false);
+    const [showAlert, changeAlert] = useState(false);
     return (
         <div className="container mt-3">
             <div className="mb-3">
@@ -23,6 +37,7 @@ export const Form = () => {
             <button type="submit" className="btn btn-primary" onClick={handelClick}>Check</button>
             <hr />
             {isClicked === true && <IsbnAbout isbnNumber={isbnNumber} bookName="Not Given" />}
+            {showAlert === true && <Alert title="Try Again" about="ISBN Number must be 10 digits" isSuccess={false} />}
         </div>
     )
 }
