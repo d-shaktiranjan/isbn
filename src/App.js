@@ -1,10 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
 import { Navbar } from './myCom/Navbar.js';
+import { Form } from './myCom/Form.js';
 
 function App() {
   return (
-    <Navbar />
+    <>
+      <Navbar />
+      <Form />
+    </>
   );
 }
 
